@@ -1,0 +1,39 @@
+<section class="py-5" style="display: grid; gap: 40px">
+  <h1>Add Item</h1>
+  <form (submit)="onSubmit()" [formGroup]="f2" style="display: grid; gap: 20px">
+    <div>
+      <label for="name" style="padding-right: 12px">Name</label>
+      <input type="text" name="name" formControlName="name" />
+      <p *ngIf="name?.errors" style="color: red; display: grid; gap: 6px">
+        <small *ngIf="name?.errors?.['required']">This field is required</small>
+        <small *ngIf="name?.errors?.['minlength']"
+          >This field must be at least 3 characters</small
+        >
+        <small *ngIf="name?.errors?.['maxlength']"
+          >This field must be at most 10 characters</small
+        >
+      </p>
+    </div>
+
+    <div>
+      <label for="description" style="padding-right: 12px">Description</label>
+      <input type="text" name="description" formControlName="description" />
+      <p
+        *ngIf="description?.errors"
+        style="color: red; display: grid; gap: 6px"
+      >
+        <small *ngIf="description?.errors?.['required']"
+          >This field is required</small
+        >
+        <small *ngIf="description?.errors?.['minlength']"
+          >This field must be at least 3 characters</small
+        >
+        <small *ngIf="description?.errors?.['maxlength']"
+          >This field must be at most 10 characters</small
+        >
+      </p>
+    </div>
+
+    <button [disabled]="f2.status === 'INVALID'">Submit</button>
+  </form>
+</section>
