@@ -1,0 +1,22 @@
+<section>
+  <form (submit)="onSubmit()" [formGroup]="f2" style="display: grid; gap: 20px">
+    <div>
+      <label for="nom" style="padding-right: 12px">Nom</label>
+      <input type="text" name="nom" formControlName="nom" />
+    </div>
+
+    <div>
+      <label for="wilaya" style="padding-right: 12px">Wilaya</label>
+      <input type="text" name="wilaya" formControlName="wilaya" />
+    </div>
+
+    <button [disabled]="f2.status === 'INVALID'">Submit</button>
+  </form>
+  <ul>
+    <li *ngFor="let item of data">
+      <h3>{{ item.nom }}</h3>
+      <p>{{ item.wilaya }}</p>
+      <p>{{ item.commune }}</p>
+    </li>
+  </ul>
+</section>

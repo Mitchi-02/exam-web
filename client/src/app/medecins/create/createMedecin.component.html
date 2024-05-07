@@ -1,0 +1,50 @@
+<section class="py-5" style="display: grid; gap: 40px">
+  <h1>Add Medecin</h1>
+  <form (submit)="onSubmit()" [formGroup]="f2" style="display: grid; gap: 20px">
+    <div>
+      <label for="nom" style="padding-right: 12px">Nom</label>
+      <input type="text" name="nom" formControlName="nom" />
+      <p *ngIf="nom?.errors" style="color: red; display: grid; gap: 6px">
+        <small *ngIf="nom?.errors?.['required']">This field is required</small>
+        <small *ngIf="nom?.errors?.['minlength']"
+          >This field must be at least 3 characters</small
+        >
+      </p>
+    </div>
+
+    <div>
+      <label for="wilaya" style="padding-right: 12px">Wilaya</label>
+      <select
+        type="text"
+        name="wilaya"
+        formControlName="wilaya"
+        (change)="onWilayaChange()"
+      >
+        <option *ngFor="let item of wilayas" [value]="item.nom">
+          {{ item.nom }}
+        </option>
+      </select>
+      <p *ngIf="wilaya?.errors" style="color: red; display: grid; gap: 6px">
+        <small *ngIf="wilaya?.errors?.['required']"
+          >This field is required</small
+        >
+      </p>
+    </div>
+
+    <div>
+      <label for="commune" style="padding-right: 12px">Commune</label>
+      <select type="text" name="commune" formControlName="commune">
+        <option *ngFor="let commune of communes" [value]="commune">
+          {{ commune }}
+        </option>
+      </select>
+      <p *ngIf="commune?.errors" style="color: red; display: grid; gap: 6px">
+        <small *ngIf="commune?.errors?.['required']"
+          >This field is required</small
+        >
+      </p>
+    </div>
+
+    <button [disabled]="f2.status === 'INVALID'">Submit</button>
+  </form>
+</section>

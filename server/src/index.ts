@@ -3,7 +3,7 @@ import { config } from 'dotenv'
 config()
 import './config/db'
 import connectToDB from './config/db'
-import ItemRoutes from './routes/ItemRoutes'
+import MedecinRoutes from './routes/MedecinRoutes'
 import { createServer } from 'http'
 import Cors from 'cors'
 
@@ -22,7 +22,7 @@ app.use(
   })
 )
 
-app.use('/items', ItemRoutes)
+app.use('/medecins', MedecinRoutes)
 
 const server = createServer(app)
 

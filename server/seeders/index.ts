@@ -1,6 +1,6 @@
 import { ConnectOptions, connect, disconnect } from 'mongoose'
 import { config } from 'dotenv'
-import ItemSeeder from './ItemSeeder'
+import MedecinSeeder from './etudiantSeeder'
 config()
 
 async function main(seeders: (() => Promise<void>)[]) {
@@ -17,6 +17,6 @@ async function main(seeders: (() => Promise<void>)[]) {
   console.log('Database disconnected.')
 }
 
-if(process.env.NODE_ENV !== 'production') {
-  main([ItemSeeder])
+if (process.env.NODE_ENV !== 'production') {
+  main([MedecinSeeder])
 }

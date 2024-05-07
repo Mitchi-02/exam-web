@@ -1,4 +1,5 @@
-export interface IITem {
-  name: string
-  description: string
+export interface IMedecin {
+  nom: string
+  wilaya: string
+  commune: string
 }

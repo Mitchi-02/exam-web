@@ -1,27 +1,15 @@
 import { Routes } from '@angular/router';
-import { ItemsComponent } from './items/list/items.component';
-import { CreateItemComponent } from './items/create/createItem.component';
-import { UpdateItemComponent } from './items/update/updateItem.component';
-import { OneItemComponent } from './items/one/oneItem.component';
+import { MedecinsComponent } from './medecins/list/medecins.component';
+import { CreateMedecinComponent } from './medecins/create/createMedecin.component';
 
 export const routes: Routes = [
   {
-    path: 'items',
-    component: ItemsComponent,
+    path: 'medecins',
+    component: MedecinsComponent,
   },
 
   {
-    path: 'items/create',
-    component: CreateItemComponent,
-  },
-
-  {
-    path: 'items/update/:id',
-    component: UpdateItemComponent,
-  },
-
-  {
-    path: 'items/:id',
-    component: OneItemComponent,
+    path: 'medecins/create',
+    component: CreateMedecinComponent,
   },
 ];

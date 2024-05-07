@@ -1,12 +1,14 @@
-export type Item = {
+export type Medecin = {
   _id: string;
-  name: string;
-  description: string;
+  nom: string;
+  wilaya: string;
+  commune: string;
 };
 
-export type ItemPost = {
-  name: string;
-  description: string;
+export type MedecinPost = {
+  nom: string;
+  wilaya: string;
+  commune: string;
 };
 
 export interface SuccessResponse<T> extends Record<string, any> {

@@ -1,9 +1,0 @@
-<ul>
-  <li *ngFor="let item of data">
-    <h3>{{ item.name }}</h3>
-    <p>{{ item.description }}</p>
-    <button (click)="delete(item._id)">Delete</button>
-
-    <a [routerLink]="'/items/update/' + item._id">Edit</a>
-  </li>
-</ul>

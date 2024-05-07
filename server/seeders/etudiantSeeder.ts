@@ -1,40 +1,28 @@
-import Etudiant from '../src/models/Etudiant'
-import Compte from '../src/models/Compte'
-import Passport from '../src/models/Passport'
+import Medecin from '../src/models/Medecin'
 
-export default async function EtudiantSeeder() {
-  console.log(`EtudiantSeeder seeder started.`)
+export default async function MedecinSeeder() {
+  console.log(`MedecinSeeder seeder started.`)
   try {
-    await Promise.all([
-      Etudiant.deleteMany(),
-      Compte.deleteMany(),
-      Passport.deleteMany(),
-    ])
-    for (let i = 0; i < 100; i++) {
-      const t = await Etudiant.create({
-        name: `Etudiant ${i}`,
-        description: `Description for Etudiant ${i}`,
-      })
-      const data = i % 2 === 0 ? 5000 : 1000
-      await Promise.all([
-        Compte.create({
-          solde: data,
-          etudiant: t._id,
-        }),
-        Compte.create({
-          solde: data + 5000,
-          etudiant: t._id,
-        }),
-        Passport.create({
-          passport_uid: `passport_etudiant${i}`,
-          etudiant: t._id,
-        }),
-      ])
-    }
+    await Medecin.deleteMany()
+    await Medecin.create({
+      nom: 'mohamed',
+      wilaya: 'sba',
+      commune: 'telagh',
+    })
+    await Medecin.create({
+      nom: 'fatima',
+      wilaya: 'oran',
+      commune: 'oran',
+    })
+    await Medecin.create({
+      nom: 'mohamed',
+      wilaya: 'oran',
+      commune: 'oran',
+    })
 
-    console.log(`EtudiantSeeder seeded.`)
+    console.log(`Medecin Seeder seeded.`)
   } catch (error: any) {
-    error.etudiant = 'Error in Etudiant Seeder: ' + error.etudiant
+    error.medecin = 'Error in Medecin Seeder: ' + error.medecin
     throw error
   }
 }
